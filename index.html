@@ -11,17 +11,17 @@
         <h1>Waitstaff Calculator</h1>
     </header>
     <section class="main" ng-controller='ctrl'>
-        <form name="meal-form">
+        <form name="meal-form" ng-submit="addTransaction()">
             <div id="meal-details">
                 <h2>Enter the meal details</h2>
                 <div id="base">Base Meal Price $
-                    <input type="number" name="baseamount" placeholder="0.00" ng-model="baseamount">
+                    <input type="number" name="baseamount" placeholder="0.00" step=".01" ng-model="baseamount">
                 </div>
                 <div id="tax">Tax Rate %
-                    <input type="number" name="taxrate" ng-model="taxrate">
+                    <input type="number" name="taxrate" placeholder="0.00" step=".01" ng-model="taxrate">
                 </div>
                 <div id="tip">Tip Percentage %
-                    <input type="number" name="tippercent" ng-model="tippercent">
+                    <input type="number" name="tippercent" placeholder="0.00" step=".01" ng-model="tippercent">
                 </div>
                 <div id="buttons">
                     <button type="submit" ng-click="submit()">Submit</button>
@@ -31,15 +31,15 @@
         </form>
         <div id="customer-charges">
             <h2>Customer Charges</h2>
-            <div id="subtotal">Subtotal <span class="amount">{{subtotal}}</span></div>
-            <div id="tip-dollars">Tip <span class="amount">{{tip}}</span></div>
-            <div id="total">Total </div>
+            <div id="subtotal">Subtotal <span class="amount">{{currentSubtotal}}</span></div>
+            <div id="tip-dollars">Tip <span class="amount">{{currentTip}}</span></div>
+            <div id="total">Total <span class="amount">{{currentTotal}}</span></div>
         </div>
         <div id="my-earnings-info">
             <h2>My Earnings Info</h2>
-            <div id="tip-total">Tip Total </div>
-            <div id="meal-count">Meal Count </div>
-            <div id="average-per-meal">Average Per Meal </div>
+            <div id="tip-total">Tip Total {{cumulativeTips}}</div>
+            <div id="meal-count">Meal Count {{cumulativeMeals}}</div>
+            <div id="average-per-meal">Average Per Meal {{cumulativeAverage}}</div>
         </div>
         <button type="reset">Reset</button>
     </section>
