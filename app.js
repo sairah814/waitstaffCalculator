@@ -14,8 +14,12 @@ angular.module('myApp', [])
 
     $scope.addTransaction = function () {
 
-        $scope.currentSubtotal = $scope.baseamount + ($scope.taxrate / 100) * $scope.baseamount;
-        $scope.currentTip = $scope.currentSubtotal * ($scope.tippercent / 100);
+        var base = parseFloat($scope.baseamount);
+        var tip = parseFloat($scope.tippercent);
+        var tax = parseFloat($scope.taxrate);
+
+        $scope.currentSubtotal = base + (tax / 100) * base;
+        $scope.currentTip = $scope.currentSubtotal * (tip / 100);
         $scope.currentTotal = $scope.currentSubtotal + $scope.currentTip;
         totalmeals++;
         tiptotal = tiptotal + $scope.currentTip;
