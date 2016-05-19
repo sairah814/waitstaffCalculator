@@ -1,4 +1,4 @@
-angular.module('myApp', ['ngRoute'])
+angular.module('myApp', ['ngRoute', 'ngAnimate'])
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', {
                 templateUrl: 'home.html',
@@ -16,6 +16,14 @@ angular.module('myApp', ['ngRoute'])
                 redirectTo: '/'
             });
     }])
+    .run(function ($rootScope, $location, $timeout) {
+        $rootScope.$on('$routeChangeStart', function () {
+            $rootScope.isLoading = true;
+        });
+        $rootScope.$on('$routeChangeSuccess', function () {
+            $rootScope.isLoading = false;
+        });
+    })
     //service keeping account of meal numbers and current average of meals
     //controller adds transactions and updates account in service
     .controller('HomeCtrl', ['$scope', function ($scope) {
