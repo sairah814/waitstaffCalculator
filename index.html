@@ -31,17 +31,17 @@
         </form>
         <div id="customer-charges">
             <h2>Customer Charges</h2>
-            <div id="subtotal">Subtotal <span class="amount">{{currentSubtotal}}</span></div>
-            <div id="tip-dollars">Tip <span class="amount">{{currentTip}}</span></div>
-            <div id="total">Total <span class="amount">{{currentTotal}}</span></div>
+            <div id="subtotal">Subtotal <span class="amount">{{currentSubtotal | number:2}}</span></div>
+            <div id="tip-dollars">Tip <span class="amount">{{currentTip | number:2}}</span></div>
+            <div id="total">Total <span class="amount">{{currentTotal | number:2}}</span></div>
         </div>
         <div id="my-earnings-info">
             <h2>My Earnings Info</h2>
-            <div id="tip-total">Tip Total {{cumulativeTips}}</div>
+            <div id="tip-total">Tip Total {{cumulativeTips | number:2}}</div>
             <div id="meal-count">Meal Count {{cumulativeMeals}}</div>
-            <div id="average-per-meal">Average Per Meal {{cumulativeAverage}}</div>
+            <div id="average-per-meal">Average Per Meal {{cumulativeAverage | number:2}}</div>
         </div>
-        <button type="reset">Reset</button>
+        <button type="reset" ng-click="reset()">Reset</button>
     </section>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js" type="text/javascript"></script>
     <script src="https://code.angularjs.org/1.5.5/angular-messages.min.js" type="text/javascript"></script>

@@ -3,6 +3,7 @@ angular.module('myApp', [])
 //service keeping account of meal numbers and current average of meals
 //controller adds transactions and updates account in service
 .controller('ctrl', ['$scope', function ($scope) {
+    var data = {};
     var totalmeals = 0;
     var tiptotal = 0;
     var average = 0;
@@ -11,6 +12,18 @@ angular.module('myApp', [])
         $scope.taxrate = '';
         $scope.tippercent = '';
     };
+
+    $scope.clearEarnings = function () {
+        tiptotal = 0;
+        average = 0;
+        totalmeals = 0;
+        $scope.currentSubtotal = 0;
+        $scope.currentTip = 0;
+        $scope.currentTotal = 0;
+        $scope.cumulativeAverage = 0;
+        $scope.cumulativeMeals = 0;
+        $scope.cumulativeTips = 0;
+    }
 
     $scope.addTransaction = function () {
 
@@ -29,7 +42,8 @@ angular.module('myApp', [])
         $scope.cumulativeAverage = average;
         $scope.cumulativeMeals = totalmeals;
     };
-
-    }])
-
-;
+    $scope.reset = function () {
+        this.cancelForm();
+        this.clearEarnings();
+    };
+    }]);
