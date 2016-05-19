@@ -26,17 +26,29 @@ General styles (General Module, wrapping around the modules bellow)
 (the styles used everywhere in the page (like the Body) or styles which are used in more than 2 of the modules bellow (h2, h3, h4, h5, h6, p, a, ul, li))
 */
 
+body {
+    margin-left: 3rem;
+}
+
 
 /* -------------------------------------
 Header styles (Main Module)
 (all the styles inside the < header > or < nav > tags)
 */
 
+header {
+    margin-top: 2rem;
+}
+
 
 /* -------------------------------------
 Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
+
+.tab {
+    display: inline;
+}
 
 
 /* -------------------------------------
