@@ -6,11 +6,11 @@ angular.module('myApp', ['ngRoute'])
             })
             .when('/newmeal', {
                 templateUrl: 'newmeal.html',
-                controller: 'NewMealCtrl',
+                controller: 'ctrl',
             })
             .when('/myearnings', {
                 templateUrl: 'myearnings.html',
-                controller: 'MyEarningsCtrl'
+                controller: 'ctrl'
             })
             .otherwise({
                 redirectTo: '/'
@@ -21,16 +21,14 @@ angular.module('myApp', ['ngRoute'])
     .controller('HomeCtrl', ['$scope', function ($scope) {
 
     }])
-    .controller('NewMealCtrl', ['$scope', function ($scope) {
+    .controller('ctrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+        $rootScope.totals = {
+            totalmeals: 0,
+            tiptotal: 0,
+            average: 0
+        };
 
-    }])
-    .controller('MyEarningsCtrl', ['$scope', function ($scope) {
 
-    }])
-    .controller('ctrl', ['$scope', function ($scope) {
-        var totalmeals = 0;
-        var tiptotal = 0;
-        var average = 0;
         $scope.cancelForm = function () {
             $scope.baseamount = '';
             $scope.taxrate = '';
@@ -58,13 +56,18 @@ angular.module('myApp', ['ngRoute'])
             $scope.currentSubtotal = base + (tax / 100) * base;
             $scope.currentTip = $scope.currentSubtotal * (tip / 100);
             $scope.currentTotal = $scope.currentSubtotal + $scope.currentTip;
-            totalmeals++;
-            tiptotal = tiptotal + $scope.currentTip;
-            average = tiptotal / totalmeals;
+            $rootScope.totals.totalmeals = $rootScope.totals.totalmeals + 1;
+            console.log($rootScope.totals.totalmeals + " This is the current meal total");
+            $rootScope.totals.tiptotal = $rootScope.totals.totalmeals + $scope.currentTip;
+            console.log($rootScope.totals.tiptotal + " This is the current tip total");
+            $rootScope.totals.average = $rootScope.totals.tiptotal / $rootScope.totals.totalmeals;
+            console.log($rootScope.totals.average + " This is the current average");
 
-            $scope.cumulativeTips = tiptotal;
-            $scope.cumulativeAverage = average;
-            $scope.cumulativeMeals = totalmeals;
+            $rootScope.cumulatives = {
+                cumulativeTips: $rootScope.totals.tiptotal,
+                cumulativeAverage: $rootScope.totals.average,
+                cumulativeMeals: $rootScope.totals.totalmeals
+            };
         };
         $scope.reset = function () {
             this.cancelForm();
