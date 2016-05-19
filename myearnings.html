@@ -2,9 +2,9 @@
     <div id="my-earnings">
         <h2>My Earnings</h2>
         <div id="my-earnings-info">
-            <div class="info-title" id="tip-total">Tip Total {{cumulatives.cumulativeTips | number:2}}</div>
-            <div class="info-title" id="meal-count">Meal Count {{cumulatives.cumulativeMeals}}</div>
-            <div class="info-title" id="average-per-meal">Average Per Meal {{cumulatives.cumulativeAverage | number:2}}</div>
+            <div class="info-title" id="tip-total"><span class="amount">Tip Total {{cumulatives.cumulativeTips | number:2}}</span></div>
+            <div class="info-title" id="meal-count"><span class="amount">Meal Count {{cumulatives.cumulativeMeals}}</span></div>
+            <div class="info-title" id="average-per-meal"><span class="amount">Average Per Meal {{cumulatives.cumulativeAverage | number:2}}</span></div>
         </div>
     </div>
     <button type="reset" ng-click="reset()">Reset</button>

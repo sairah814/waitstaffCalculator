@@ -36,15 +36,15 @@ angular.module('myApp', ['ngRoute'])
         };
 
         $scope.clearEarnings = function () {
-            tiptotal = 0;
-            average = 0;
-            totalmeals = 0;
+            $rootScope.totals.tiptotal = 0;
+            $rootScope.totals.average = 0;
+            $rootScope.totals.totalmeals = 0;
             $scope.currentSubtotal = 0;
             $scope.currentTip = 0;
             $scope.currentTotal = 0;
-            $scope.cumulativeAverage = 0;
-            $scope.cumulativeMeals = 0;
-            $scope.cumulativeTips = 0;
+            $rootScope.cumulatives.cumulativeAverage = 0;
+            $rootScope.cumulatives.cumulativeMeals = 0;
+            $rootScope.cumulatives.cumulativeTips = 0;
         }
 
         $scope.addTransaction = function () {
