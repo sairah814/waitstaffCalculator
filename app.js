@@ -12,12 +12,8 @@ angular.module('myApp', ['ngRoute'])
                 templateUrl: 'myearnings.html',
                 controller: 'MyEarningsCtrl'
             })
-            .when('/error', {
-                templateUrl: 'error.html',
-                controller: 'HomeCtrl'
-            })
             .otherwise({
-                redirectTo: '/error'
+                redirectTo: '/'
             });
     }])
     //service keeping account of meal numbers and current average of meals

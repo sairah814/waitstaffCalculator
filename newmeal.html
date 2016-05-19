@@ -1,1 +1,25 @@
-<h1>This is newmeal </h1>
+<section class="main" ng-controller='ctrl'>
+    <form name="meal-form" ng-submit="addTransaction()">
+        <div id="meal-details">
+            <h2>Enter the meal details</h2>
+            <div id="base">Base Meal Price $
+                <input type="number" name="baseamount" placeholder="0.00" step=".01" ng-model="baseamount">
+            </div>
+            <div id="tax">Tax Rate %
+                <input type="number" name="taxrate" placeholder="0.00" step=".01" ng-model="taxrate">
+            </div>
+            <div id="tip">Tip Percentage %
+                <input type="number" name="tippercent" placeholder="0.00" step=".01" ng-model="tippercent">
+            </div>
+            <div id="buttons">
+                <button type="submit" ng-click="submit()">Submit</button>
+                <button type="button" ng-click="cancelForm()">Cancel</button>
+            </div>
+        </div>
+    </form>
+    <div id="customer-charges">
+        <h2>Customer Charges</h2>
+        <div id="subtotal">Subtotal <span class="amount">{{currentSubtotal | number:2}}</span></div>
+        <div id="tip-dollars">Tip <span class="amount">{{currentTip | number:2}}</span></div>
+        <div id="total">Total <span class="amount">{{currentTotal | number:2}}</span></div>
+    </div>
