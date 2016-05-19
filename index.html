@@ -4,20 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Waitstaff Calculator</title>
+    <link href='https://fonts.googleapis.com/css?family=Sevillana|Roboto:400,700,100' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
 <body>
-    <header>
-        <h1>Waitstaff Calculator</h1>
-    </header>
-    <nav>
-        <a ng-href="#/">Home</a>
-        <a ng-href="#/newmeal">New Meal</a>
-        <a ng-href="#/myearnings">My Earnings</a>
-    </nav>
-    <div ng-view></div>
-
+    <div class="wrapper">
+        <header>
+            <h1>Waitstaff Calculator</h1>
+            <div id="line"></div>
+        </header>
+        <nav>
+            <ul id="tab">
+                <li><a ng-href="#/">Home</a></li>
+                <li><a ng-href="#/newmeal">New Meal</a></li>
+                <li><a ng-href="#/myearnings">My Earnings</a></li>
+            </ul>
+        </nav>
+        <div ng-view></div>
+    </div>
 
     </section>
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>

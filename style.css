@@ -28,6 +28,14 @@ General styles (General Module, wrapping around the modules bellow)
 
 body {
     margin-left: 3rem;
+    font-family: 'Roboto', sans-serif;
+    color: #3D2232;
+}
+
+.wrapper {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -40,14 +48,98 @@ header {
     margin-top: 2rem;
 }
 
+h1 {
+    font-family: 'Sevillana', cursive;
+    font-size: 4rem;
+    text-align: center;
+    color: #702B36;
+}
+
+h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1rem;
+    font-weight: 400;
+    color: #A16B50;
+}
+
+button {
+    padding: .3rem;
+    background-color: #B7C1C2;
+    border: 1.5px solid #3F424D;
+    border-radius: 5px;
+    font-size: .8rem;
+    margin-top: 1rem;
+    margin-bottom: .2rem;
+    font-weight: bold;
+}
+
 
 /* -------------------------------------
 Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
 
-.tab {
+#line {
+    border: .3rem solid #B7C1C2;
+    margin: 1rem 0 2rem 0;
+}
+
+p#homemessage {
+    margin-top: 2rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.8rem;
+    font-weight: 100;
+}
+
+ul {
+    text-align: center;
+}
+
+ul#tab li {
     display: inline;
+    text-decoration: none;
+    margin: 1rem;
+    padding: .5rem;
+    font-size: 1.3rem;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    color: #3F424D;
+}
+
+a:hover {
+    color: #D6A771;
+    font-size: 1.4rem;
+}
+
+#meal-details,
+#customer-charges,
+#my-earnings {
+    border: .05rem solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+#meal-details-info,
+#customer-charges-info,
+#my-earnings-info {
+    padding-left: 1rem;
+}
+
+.info-title {
+    padding: 1rem;
+}
+
+input {
+    border: 1px solid lightgray;
+    width: 8rem;
+    margin-left: 5%;
 }
 
 
