@@ -29,12 +29,19 @@ angular.module('myApp', ['ngRoute', 'ngAnimate'])
     .controller('HomeCtrl', ['$scope', function ($scope) {
 
     }])
-    .controller('ctrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
-        $rootScope.totals = {
+    .controller('cumulativeCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+        $rootScope.totals = { //ng-init
             totalmeals: 0,
             tiptotal: 0,
             average: 0
         };
+    }])
+    .controller('ctrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+        /*        $rootScope.totals = { //ng-init
+                    totalmeals: 0,
+                    tiptotal: 0,
+                    average: 0
+                };*/
 
 
         $scope.cancelForm = function () {
